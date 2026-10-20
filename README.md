@@ -1,0 +1,1 @@
+# Entrega-2-Modelo-L-gico-Implementa-o-SQL-e-Apresenta-o-Final
