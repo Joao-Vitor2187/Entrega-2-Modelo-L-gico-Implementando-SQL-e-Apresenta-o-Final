@@ -185,10 +185,13 @@
 
 | Problema ou KPI | Tabelas envolvidas | Consulta no script |
 | :---- | :---- | :---- |
-| *ex.: P1 — ruptura de estoque de bebidas* | *PRODUTO, MOVIMENTACAO\_ESTOQUE* | *G03* |
-| *ex.: ticket médio por ambiente* | *PEDIDO, ITEM\_PEDIDO, AMBIENTE* | *G05* |
-
+| P1 — *Inadimplência / pedidos pendentes de pagamento há mais de 7 dias* | *PEDIDO, CLIENTE, PAGAMENTO* | *G01* |
+| P2 — *Perda de clientes (churn): ativos sem comprar há mais de 90 dias* | *CLIENTE, PEDIDO* | *G02* |
+| P3 — *Pedidos pagos sem envio há mais de 3 dias* | *PEDIDO, PAGAMENTO, CLIENTE, FUNCIONARIO* | *G03* |
+| P3 — *Faturamento mensal e ticket médio por tipo de venda (varejo x atacado)* | *PEDIDO* | *A01* |
+| P3 — *Faturamento mensal e ticket médio por tipo de venda (varejo x atacado)* | *PEDIDO* | *A01* |
 &nbsp;
+
 
 *KPI sem consulta no script que o calcule não é considerado KPI. Cada problema declarado deve ter pelo menos uma consulta que o responda.*
 
