@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dicionário de Dados</title>
+<style>
+  :root {
+    --header-bg: #1c1c1c;
+    --header-fg: #ffffff;
+    --border-color: #333333;
+    --bg: #ffffff;
+    --fg: #1c1c1c;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #15181c;
+      --fg: #e8e8e8;
+      --border-color: #444;
+      --header-bg: #000000;
+      --header-fg: #ffffff;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #15181c;
+    --fg: #e8e8e8;
+    --border-color: #444;
+    --header-bg: #000000;
+    --header-fg: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 32px 20px 48px;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  h1 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  h2.entity-title {
+    font-size: 1.15rem;
+    margin: 40px 0 10px;
+    border-bottom: 2px solid var(--header-bg);
+    padding-bottom: 4px;
+  }
+  .table-wrap {
+    overflow-x: auto;
+    max-width: 100%;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 640px;
+    font-size: 0.9rem;
+  }
+  thead th {
+    background: var(--header-bg);
+    color: var(--header-fg);
+    text-align: center;
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    font-weight: 600;
+  }
+  tbody td {
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    vertical-align: top;
+    text-align: left;
+  }
+  tbody td:nth-child(1) {
+    white-space: nowrap;
+    font-weight: 600;
+  }
+  tbody td:nth-child(2),
+  tbody td:nth-child(3) {
+    white-space: nowrap;
+    text-align: center;
+  }
+  tbody tr:nth-child(even) {
+    background: color-mix(in srgb, var(--fg) 4%, var(--bg));
+  }
+</style>
+</head>
+<body>
+<h1>Dicionário de Dados</h1>
+
+<h2 class="entity-title">Cliente</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Atributo</th><th>Tipo físico</th><th>Obrigatório</th><th>Significado e relevância</th></tr></thead>
+<tbody>
+<tr><td>ID_CLIENTE</td><td>integer</td><td>Sim (PK)</td><td>Código de identificação do registro; não sofre operação matemática.</td></tr>
+<tr><td>NM_CLIENTE</td><td>varchar(150)</td><td>Sim</td><td>Nome ou razão social do cliente; identifica-o nos pedidos e documentos fiscais.</td></tr>
+<tr><td>NR_CPF_CNPJ</td><td>varchar(18)</td><td>Sim</td><td>Documento civil ou empresarial único; utilizado para emissão de nota fiscal e controle de duplicidade de cadastro.</td></tr>
+<tr><td>NR_TELEFONE</td><td>varchar(20)</td><td>Não</td><td>Contato para confirmação de pedidos e entregas.</td></tr>
+<tr><td>DS_EMAIL</td><td>varchar(120)</td><td>Não</td><td>Canal de comunicação para notificações de pedido e pagamento.</td></tr>
+<tr><td>DS_ENDERECO</td><td>varchar(200)</td><td>Sim</td><td>Endereço de entrega e/ou cobrança vinculado ao pedido.</td></tr>
+<tr><td>TP_CLIENTE</td><td>char(1) (F, J)</td><td>Sim</td><td>Indica se o cliente é Pessoa Física ou Pessoa Jurídica; define regras fiscais e documentação exigida.</td></tr>
+<tr><td>IN_ATIVO</td><td>boolean</td><td>Sim</td><td>Indicador de cadastro ativo; cliente inativo não pode realizar novos pedidos, mas mantém o histórico preservado.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 class="entity-title">Empresa</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Atributo</th><th>Tipo físico</th><th>Obrigatório</th><th>Significado e relevância</th></tr></thead>
+<tbody>
+<tr><td>ID_EMPRESA</td><td>integer</td><td>Sim (PK)</td><td>Código de identificação do registro institucional; não sofre operação matemática.</td></tr>
+<tr><td>DS_RAZAO_SOCIAL</td><td>varchar(150)</td><td>Sim</td><td>Nome jurídico oficial da empresa; utilizado em documentos fiscais.</td></tr>
+<tr><td>NR_CNPJ</td><td>varchar(14)</td><td>Sim</td><td>Identificador único da pessoa jurídica perante a Receita Federal.</td></tr>
+<tr><td>NM_FANTASIA</td><td>varchar(150)</td><td>Não</td><td>Nome comercial utilizado na comunicação com clientes.</td></tr>
+<tr><td>DS_ENDERECO</td><td>varchar(200)</td><td>Sim</td><td>Endereço fiscal/comercial da sede.</td></tr>
+<tr><td>NR_TELEFONE</td><td>varchar(20)</td><td>Não</td><td>Contato institucional.</td></tr>
+<tr><td>DS_EMAIL</td><td>varchar(150)</td><td>Não</td><td>Canal de comunicação institucional.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 class="entity-title">Estoque</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Atributo</th><th>Tipo físico</th><th>Obrigatório</th><th>Significado e relevância</th></tr></thead>
+<tbody>
+<tr><td>ID_ESTOQUE</td><td>integer</td><td>Sim (PK)</td><td>Código de identificação do registro de controle de estoque; não sofre operação matemática.</td></tr>
+<tr><td>ID_PRODUTO</td><td>integer</td><td>Sim (FK)</td><td>Referência ao produto controlado; vincula o registro de estoque à entidade Produto.</td></tr>
+<tr><td>QT_DISPONIVEL</td><td>integer</td><td>Sim</td><td>Quantidade física disponível para venda no momento da consulta; usada para bloquear pedidos sem cobertura.</td></tr>
+<tr><td>QT_MINIMA</td><td>integer</td><td>Sim</td><td>Limite mínimo aceitável em estoque; utilizado como gatilho de alerta para reposição junto a fornecedores.</td></tr>
+<tr><td>DT_ATUALIZACAO</td><td>datetime</td><td>Sim</td><td>Data e hora da última movimentação; garante rastreabilidade e consistência do saldo.</td></tr>
+<tr><td>DS_LOCALIZACAO</td><td>varchar(30)</td><td>Sim</td><td>localização física de um produto dentro do estoque ou armazém</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 class="entity-title">Pedido</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Atributo</th><th>Tipo físico</th><th>Obrigatório</th><th>Significado e relevância</th></tr></thead>
+<tbody>
+<tr><td>ID_PEDIDO</td><td>integer</td><td>Sim (PK)</td><td>Código de identificação do registro; não sofre operação matemática.</td></tr>
+<tr><td>ID_CLIENTE</td><td>integer</td><td>Sim (FK)</td><td>Referência ao cliente que originou a compra.</td></tr>
+<tr><td>ID_FUNCIONARIO</td><td>integer</td><td>Sim (FK)</td><td>Referência ao colaborador responsável pelo atendimento; garante rastreabilidade e auditoria.</td></tr>
+<tr><td>DT_PEDIDO</td><td>date</td><td>Sim</td><td>Data de abertura do pedido; base para cálculo de prazos e relatórios de vendas.</td></tr>
+<tr><td>DS_STATUS</td><td>varchar(20)</td><td>Sim</td><td>Situação atual do pedido (ex: em processamento, enviado, cancelado); orienta o fluxo operacional.</td></tr>
+<tr><td>TP_VENDA</td><td>varchar(20)</td><td>Sim</td><td>Modalidade da venda (ex: presencial, online); usada para segmentação de relatórios comerciais.</td></tr>
+<tr><td>VL_TOTAL</td><td>decimal(10,2)</td><td>Sim</td><td>Valor total do pedido; base de conferência com os registros de Pagamento.</td></tr>
+<tr><td>DT_ENVIO</td><td>date</td><td>Não</td><td>Data de expedição da mercadoria; utilizada para cálculo de prazo de entrega.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 class="entity-title">Fornecedor</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Atributo</th><th>Tipo físico</th><th>Obrigatório</th><th>Significado e relevância</th></tr></thead>
+<tbody>
+<tr><td>ID_FORNECEDOR</td><td>integer</td><td>Sim (PK)</td><td>Código de identificação do registro; não sofre operação matemática.</td></tr>
+<tr><td>NM_FORNECEDOR</td><td>varchar(120)</td><td>Sim</td><td>Nome ou razão social do fornecedor; identifica a origem dos produtos adquiridos.</td></tr>
+<tr><td>NR_CNPJ</td><td>varchar(14)</td><td>Sim</td><td>Identificador único da pessoa jurídica; evita duplicidade de cadastro.</td></tr>
+<tr><td>NR_TELEFONE</td><td>varchar(11)</td><td>Não</td><td>Contato comercial para negociação e reposição.</td></tr>
+<tr><td>DS_EMAIL</td><td>varchar(120)</td><td>Não</td><td>Canal de comunicação para pedidos de compra.</td></tr>
+<tr><td>DS_ENDERECO</td><td>varchar(200)</td><td>Sim</td><td>Endereço utilizado para logística de recebimento de mercadorias.</td></tr>
+<tr><td>IN_ATIVO</td><td>boolean</td><td>Sim</td><td>Indicador de parceria ativa; fornecedor inativo não pode ser vinculado a novas reposições, mas mantém histórico de fornecimento.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 class="entity-title">Funcionário</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Atributo</th><th>Tipo físico</th><th>Obrigatório</th><th>Significado e relevância</th></tr></thead>
+<tbody>
+<tr><td> ID_FUNCIONARIO</td><td>integer</td><td>Sim (PK)</td><td>Código de identificação do registro; não sofre operação matemática.</td></tr>
+<tr><td> ID_EMPRESA</td><td>integer</td><td>Sim (FK)</td><td>Código de identificação do registro; não sofre operação matemática.</td></tr>
+<tr><td> NM_FUNCIONARIO</td><td>varchar(120)</td><td>Sim</td><td>Nome completo do trabalhador, sem abreviações, conforme registrado no documento oficial de identificação (RG/CPF) e no contrato de trabalho.</td></tr>
+<tr><td>NR_CPF</td><td>varchar(11)</td><td>Sim</td><td>Número de registro oficial do Cadastro de Pessoas Físicas da Receita Federal do Brasil. Identificador único e obrigatório para o cidadão no sistema.</td></tr>
+<tr><td>NR_TELEFONE</td><td>varchar(11)</td><td>Não</td><td>Contato comercial para negociação ou para atendimento em pós venda.</td></tr>
+<tr><td>DS_CARGO</td><td>varchar(30)</td><td>Sim</td><td>Nomenclatura oficial da função ou posição hierárquica que o colaborador ocupa na estrutura organizacional da empresa.</td></tr>
+<tr><td>DS_EMAIL</td><td>varchar(120)</td><td>Não</td><td>Canal de comunicação para pedidos de compra.</td></tr>
+<tr><td>DT_ADMISSÃO</td><td>Date</td><td>Sim</td><td>Data oficial de início do vínculo empregatício do colaborador com a empresa, correspondente ao primeiro dia efetivo de trabalho conforme registrado no contrato de trabalho</td></tr>
+<tr><td>IN_ATIVO</td><td>boolean</td><td>Sim</td><td>Indicador de parceria ativa; colaborador inativo não pode ser vinculado a novas reposições, mas mantém histórico de fornecimento.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 class="entity-title">Fornecedor Produto</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Atributo</th><th>Tipo físico</th><th>Obrigatório</th><th>Significado e relevância</th></tr></thead>
+<tbody>
+<tr><td>ID_FORNECEDOR</td><td>integer</td><td>Sim (PK, FK)</td><td>Código de identificação do fornecedor que fornece o produto; não sofre operação matemática. Compõe a chave primária junto com o produto.</td></tr>
+<tr><td>ID_PRODUTO</td><td>integer</td><td>Sim (PK, FK)</td><td>Código de identificação do produto fornecido; não sofre operação matemática. Compõe a chave primária junto com o fornecedor, evitando vínculos duplicados.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 class="entity-title">Item Pedido</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Atributo</th><th>Tipo físico</th><th>Obrigatório</th><th>Significado e relevância</th></tr></thead>
+<tbody>
+<tr><td>ID_ITEM_PEDIDO</td><td>integer</td><td>Sim (PK)</td><td>Código de identificação do registro; não sofre operação matemática.</td></tr>
+<tr><td>ID_PEDIDO</td><td>integer</td><td>Sim (FK)</td><td>Código de identificação do pedido ao qual o item pertence; não sofre operação matemática. Combinado com o produto, não pode se repetir dentro do mesmo pedido.</td></tr>
+<tr><td>ID_PRODUTO</td><td>integer</td><td>Sim (FK)</td><td>Código de identificação do produto solicitado no item; não sofre operação matemática. Um mesmo produto só pode aparecer uma vez em cada pedido.</td></tr>
+<tr><td>QT_ITEM</td><td>integer</td><td>Sim</td><td>Quantidade de unidades do produto solicitadas no pedido. Deve ser sempre maior que zero.</td></tr>
+<tr><td>VL_PRECO_UNITARIO</td><td>decimal(10,2)</td><td>Sim</td><td>Valor unitário do produto praticado no momento do pedido, em reais, com duas casas decimais. Deve ser sempre maior que zero e mantém o histórico de preço mesmo que o produto seja reajustado depois.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 class="entity-title">Pagamento</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Atributo</th><th>Tipo físico</th><th>Obrigatório</th><th>Significado e relevância</th></tr></thead>
+<tbody>
+<tr><td>ID_PAGAMENTO</td><td>integer</td><td>Sim (PK)</td><td>Código de identificação do registro; não sofre operação matemática.</td></tr>
+<tr><td>ID_PEDIDO</td><td>integer</td><td>Sim (FK)</td><td>Referência ao pedido ao qual o pagamento está vinculado.</td></tr>
+<tr><td>NR_PARCELAS</td><td>date</td><td>Sim</td><td>Número indicador da quantidade de parcelas a compra foi feita</td></tr>
+<tr><td>DT_PAGAMENTO</td><td>integer</td><td>Sim</td><td>Data em que o pagamento foi efetivado. Fica nula enquanto o pagamento estiver pendente ou cancelado</td></tr>
+<tr><td>TP_FORMA_PAGAMENTO</td><td>varchar(30)</td><td>Sim</td><td>Meio utilizado (ex: cartão, boleto, pix); relevante para relatórios financeiros e taxas.</td></tr>
+<tr><td>VL_PAGAMENTO</td><td>decimal(10,2)</td><td>Sim</td><td>Valor efetivamente pago; comparado ao valor total do pedido para conferência de quitação.</td></tr>
+<tr><td>DS_STATUS</td><td>varchar(20)</td><td>Sim</td><td>Situação do pagamento (ex: pendente, aprovado, estornado); orienta liberação do pedido.</td></tr>
+<tr><td>VL_DESCONTO</td><td>decimal(10,2)</td><td>Não</td><td>Percentual ou valor de desconto aplicado; impacta o valor final recebido e a análise de margem.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 class="entity-title">Produto</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Atributo</th><th>Tipo físico</th><th>Obrigatório</th><th>Significado e relevância</th></tr></thead>
+<tbody>
+<tr><td>ID_PRODUTO</td><td>integer</td><td>Sim (PK)</td><td>Identificador único do produto (variação). Gerado automaticamente.</td></tr>
+<tr><td>DS_NOME</td><td>varchar(120)</td><td>Sim</td><td>Nome/descrição comercial do produto, como CAMISETA BASICA ALGODAO.</td></tr>
+<tr><td>DS_CATEGORIA</td><td>varchar(50)</td><td>Sim</td><td>Categoria do produto, como CAMISETA, CALCA, CALCADO.</td></tr>
+<tr><td>DS_TAMANHO</td><td>varchar(10)</td><td>Não</td><td>Tamanho da variação: P, M, G, GG, 38, 42, UNICO.</td></tr>
+<tr><td>DS_COR</td><td>varchar(30)</td><td>Sim</td><td>Cor da variação, como PRETO, AZUL MARINHO.</td></tr>
+<tr><td>VL_PRECO_VAREJO</td><td>decimal(10,2)</td><td>Sim</td><td>Preço unitário de venda ao consumidor final.</td></tr>
+<tr><td>VL_PRECO_ATACADO</td><td>decimal(10,2)</td><td>Sim</td><td>Preço unitário para venda em atacado (normalmente por quantidade mínima).</td></tr>
+<tr><td>IN_ATIVO</td><td>boolean</td><td>Sim</td><td>Indica se o produto está ativo para venda (TRUE) ou inativo (FALSE).</td></tr>
+</tbody>
+</table>
+</div>
+
+</body>
+</html>
