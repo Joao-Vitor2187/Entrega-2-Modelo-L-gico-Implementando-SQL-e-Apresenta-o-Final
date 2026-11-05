@@ -251,26 +251,28 @@ Os dados históricos podem apoiar painéis de vendas, estoque, pagamentos e dese
 
 ## 6\. Uso de Inteligência Artificial
 
-*(documentação obrigatória — não é opcional se o grupo usou IA em qualquer etapa: pesquisa, levantamento de processos, requisitos e regras típicos, escrita, organização de ideias, revisão de texto, geração de massa de dados ou apoio a scripts SQL)*
+Durante o desenvolvimento do projeto, foram utilizadas ferramentas de Inteligência Artificial como apoio à pesquisa, organização, modelagem e implementação do banco de dados. A seguir, estão documentados os principais usos realizados pelo grupo.
 
-Para cada uso relevante de ferramenta de IA (ChatGPT, Claude, Gemini, Perplexity etc.), registre:
+### 6.1. Registro dos prompts utilizados
 
-| Item | O que registrar |
-| :---- | :---- |
-| **Ferramenta e etapa** | Qual IA foi usada e em qual parte do trabalho (ex.: normalização, geração da massa de dados, escrita de queries SQL, redação do relatório, preparação dos slides). |
-| **Motivação** | Por que o grupo recorreu à IA nesse ponto específico. |
-| **Prompt(s) utilizados** | Texto exato (ou muito próximo) do que foi perguntado/pedido à IA. |
-| **Resposta recebida** | Resumo ou trecho relevante da resposta da IA. |
-| **Fontes consultadas e verificadas** | Se a IA citou fontes/dados, quais foram checadas pelo grupo e como. |
-| **Trechos rejeitados ou corrigidos** | O que da resposta da IA foi descartado, editado ou corrigido manualmente (ex.: query SQL ajustada, dado fictício alterado), e por quê. |
-| **Justificativa da escolha final** | Por que o grupo manteve, adaptou ou rejeitou o que a IA sugeriu. |
-| **Reflexão crítica** | Limites, vieses ou erros identificados no uso da IA nessa etapa (ex.: normalização incorreta sugerida pela IA, script SQL com erro de sintaxe, dado fictício incoerente com o volume real da organização). |
+| Item | Prompt 1 — Orientação sobre as partes 5 e 7 | Prompt 2 — Desenvolvimento da Entrega 2 | Prompt 3 — Geração da massa de dados SQL |
+|---|---|---|---|
+| **Ferramenta e etapa** | ChatGPT — orientação sobre a documentação do modelo lógico. | ChatGPT — desenvolvimento e revisão técnica da Entrega 2. | ChatGPT — implementação SQL e geração de massa de dados. |
+| **Motivação** | Compreender o que deveria ser desenvolvido nas partes 5 e 7 do trabalho e como realizar essas etapas seguindo os conceitos de banco de dados. | Obter apoio para desenvolver e revisar a segunda entrega, mantendo a coerência entre modelo conceitual, modelo lógico, normalização, SQL e documentação. | Facilitar a criação de registros fictícios para preencher a tabela `Empresa` do banco de dados, respeitando sua estrutura e suas restrições. |
+| **Prompt(s) utilizados** | "Seguinte, eu e meu grupo temos um trabalho de modelagem de banco de dados, nestes arquivos readme(1) e dicionario de dados está a primeira entrega, que seria o modelo conceitual, neste outro readme está o modelo lógico a outra entrega que ele quer, eu fiquei encarregado de fazer a parte 5 e 7 deste esqueleto, quero que você me explique o que devo fazer, e como você faria, atuando como um especialista em banco de dados, seguindo todas as regras que são utilizadas para um trabalho de banco de dados." | Prompt solicitando que o ChatGPT atuasse como especialista em Banco de Dados e Engenharia de Software para desenvolver e revisar a Entrega 2 do projeto Peg Vest Jeans, seguindo o esqueleto oficial do professor e analisando modelagem, normalização, SQL, consultas e documentação. | "Atue como um especialista em Banco de Dados e SQL, com experiência em modelagem relacional e implementação de scripts MySQL. Estou desenvolvendo um banco de dados para a empresa Peg Vest Jeans, que atua no comércio de roupas jeans femininas. Com base no script SQL disponibilizado, analise a estrutura da tabela `Empresa` e desenvolva uma massa de dados fictícia para realizar sua população. Siga os seguintes critérios: 1. Analise os nomes das colunas, os tipos de dados, as chaves e as restrições definidas na tabela `Empresa`. 2. Gere registros fictícios, mas realistas e coerentes com o contexto comercial da Peg Vest Jeans. 3. Preencha todos os campos obrigatórios, respeitando os limites e formatos definidos no script SQL. 4. Respeite as restrições de integridade e evite duplicidade em campos que possuam restrição de unicidade. 5. Utilize comandos `INSERT INTO` compatíveis com MySQL. 6. Organize os comandos de forma clara, com comentários identificando a finalidade dos registros. 7. Não invente colunas que não existam na estrutura original da tabela. 8. Garanta que os dados gerados sejam coerentes com o modelo lógico e com o restante do banco de dados. Ao final, apresente o script SQL completo da massa de dados e explique brevemente como os registros atendem à estrutura da tabela. Não afirme que o script foi executado ou testado sem que isso tenha sido realizado." |
+| **Resposta recebida** | Orientações sobre as atividades necessárias nas partes indicadas e sugestões de como desenvolvê-las conforme os conceitos de modelagem de banco de dados. | Orientações para analisar o projeto, identificar inconsistências, sugerir melhorias, desenvolver a documentação e verificar a coerência entre os diferentes artefatos. | Geração de comandos SQL com registros fictícios para inserir informações na tabela `Empresa`, considerando os campos definidos na estrutura do banco. |
+| **Fontes consultadas e verificadas** | Foram utilizados como referência os arquivos README da primeira e segunda entregas e o dicionário de dados disponibilizados pelo grupo. | Foram indicados como materiais de referência os documentos oficiais do professor, o esqueleto da Entrega 2, os materiais da Entrega 1, o DER e os arquivos SQL do grupo. | Foi utilizado como referência o script SQL do projeto, principalmente a estrutura, os campos, os tipos de dados e as restrições da tabela `Empresa`. Não foram utilizadas fontes externas. |
+| **Trechos rejeitados ou corrigidos** | Não foram especificados trechos rejeitados ou corrigidos pelo grupo. | As sugestões da IA deveriam ser comparadas com os documentos oficiais e com a estrutura original do projeto. Não foram especificadas todas as alterações realizadas manualmente. | Os dados gerados precisaram ser considerados em relação aos campos, tipos de dados e restrições da tabela. Eventuais ajustes devem ser conferidos antes da execução. |
+| **Justificativa da escolha final** | O ChatGPT foi utilizado para facilitar a compreensão das etapas do trabalho e orientar o desenvolvimento das partes atribuídas ao integrante. | A ferramenta foi utilizada para auxiliar na organização e revisão de um trabalho com várias etapas interdependentes, buscando maior consistência técnica e adequação às exigências acadêmicas. | A ferramenta foi utilizada para agilizar a criação de dados fictícios, respeitando a estrutura do banco e reduzindo a necessidade de inserção manual de cada registro. |
+| **Reflexão crítica** | A IA facilita a compreensão dos conceitos, mas suas orientações precisam ser comparadas com o material do professor. Uma explicação aparentemente correta pode não atender exatamente ao que foi solicitado. | A IA pode interpretar incorretamente documentos, sugerir alterações desnecessárias ou apresentar soluções que não correspondem à realidade da empresa. Por isso, suas sugestões precisam ser analisadas e validadas pelo grupo. | A geração automática de dados pode apresentar erros de sintaxe, incompatibilidade com as colunas ou informações fictícias incoerentes. Por isso, os comandos SQL precisam ser revisados e testados no SGBD antes da entrega. |
 
-&nbsp;
+### 6.2. Considerações sobre o uso de IA
 
-*Se o grupo não usou nenhuma ferramenta de IA em alguma dessas etapas, declare isso explicitamente.*
+O grupo utilizou a Inteligência Artificial como ferramenta de apoio durante o desenvolvimento do projeto, principalmente para esclarecer conceitos, organizar informações, revisar a modelagem e auxiliar na implementação SQL.
 
-**Uso de IA observado e não declarado será penalizado.**
+As respostas geradas não foram consideradas automaticamente corretas. Foi necessário analisar as sugestões e considerar as orientações do professor, os requisitos do sistema e a estrutura do banco de dados.
+
+A responsabilidade pela análise, validação e entrega final do trabalho permanece com os integrantes do grupo.
 
 ---
 
