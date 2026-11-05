@@ -1,6 +1,5 @@
 # Entrega 2 — Modelo Lógico, Implementação SQL e Apresentação Final
 
-# Entrega 2 — Modelo Lógico, Implementação SQL e Apresentação Final
 
 **Modelagem de um sistema de gestão de informações para uma organização de pequeno porte**
 
