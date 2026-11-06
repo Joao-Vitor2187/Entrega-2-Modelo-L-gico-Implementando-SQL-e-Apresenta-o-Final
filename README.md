@@ -43,17 +43,17 @@
 - **Contato geral informado:** (11) 96173-2019.
 - **Fotografias da visita/entrevista:** inserir os arquivos JPG ou PNG no repositório.
 
-**Responsável entrevistado:** `[PREENCHER NOME, FUNÇÃO E TELEFONE CONFIRMADO]`.
+**Responsável entrevistado:** `antonio santana souza, gerente, telefone: +55 11 99937-3856`.
 
 ### Relato da entrevista
 
 As fotografias fornecidas pelo grupo constituem evidência visual da visita, mas não identificam sozinhas a data, o entrevistado ou o conteúdo da conversa.
 
-- **Entrevistado e função:** `antonio santana souza, função: gerente`.
-- **Integrantes presentes:** `raimundo walter`.
-- **Data e local:** `10/09/26`.
-- **Informações confirmadas pelo entrevistado:** `processo de negocios, requisitos do sistema, regras de negocio, restriçoes organizacionais`.
-- **Processos observados presencialmente:** `Durante a visita à empresa, foram observados processos relacionados à comercialização de peças jeans, atendimento aos clientes, consulta de produtos, controle de estoque, organização de pedidos e acompanhamento das vendas. Também foram identificadas atividades administrativas relacionadas ao gerenciamento da empresa e à utilização de sistemas para controle das operações`.
+- **Entrevistado e função:** antonio santana souza, função: gerente.
+- **Integrantes presentes:** raimundo walter.
+- **Data e local:** 10/09/26.
+- **Informações confirmadas pelo entrevistado:** processo de negocios, requisitos do sistema, regras de negocio, restriçoes organizacionais.
+- **Processos observados presencialmente:** Durante a visita à empresa, foram observados processos relacionados à comercialização de peças jeans, atendimento aos clientes, consulta de produtos, controle de estoque, organização de pedidos e acompanhamento das vendas. Também foram identificadas atividades administrativas relacionadas ao gerenciamento da empresa e à utilização de sistemas para controle das operações.
 
 ### Processos de negócio
 
